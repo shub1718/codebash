@@ -1,0 +1,88 @@
+<div >
+    <h4>Tags lists
+        <span class="pull-right">
+
+
+            <button class="btn btn-default" type="button" data-toggle="collapse" data-target="#searchtags"><i class="glyphicon glyphicon-search"></i>
+            </button>
+        </span>
+    </h4>
+    <h4 id="searchtags" class="collapse" style="padding-top:10px;">
+
+        <div class="form-group input-group">
+            <input type="text" class="form-control">
+            <span class="input-group-btn">
+                <button class="btn btn-default btn-md" type="button">search
+                </button>
+            </span>
+        </div>
+
+    </h4>
+    <hr>
+    <div class="col-md-12">
+        <div class="row">
+            <?php
+            if (isset($_POST['page'])) {
+            
+            
+
+            $bno = ($_POST['page']-1)*10;
+            
+        } else {
+
+            $bno = 0;
+           
+        }
+      $bend=10;
+    $con = mysql_connect('localhost', 'root', '');
+            mysql_select_db("codebash", $con);
+            
+            $result = mysql_query("SELECT distinct(tagname) from tags");
+            
+$num_rows = mysql_num_rows($result);
+
+if($bno+$bend>($num_rows))
+{ 
+    $bend=$num_rows-$bno;
+}
+//echo $bno .'\n'.$bend.'\n'.$num_rows;
+
+                
+                $query = "SELECT distinct(tagname) from tags LIMIT $bno,$bend";
+           
+
+            
+$value = mysql_query($query);
+$content = array();
+$counter = 1;
+
+while ($row = mysql_fetch_array($value)){
+    $content[$counter]['tagname'] = $row['tagname'];
+    
+    
+    $counter+=1;
+    
+}
+            for ($i = 1; $i <= $bend; $i++) {
+                $tagname=$content[$i]['tagname'];
+               $count = mysql_query("SELECT COUNT(*) FROM tags where tagname='$tagname'");
+              mysql_result($count, 0);
+               
+
+                    echo"<div class='col-md-6 col-sm-6'>
+                       <form id=\"".$content[$i]['tagname']."\" method=\"get\" action=\"discussion.php\">
+    <input type=\"hidden\" name=\"tagname\" value=\"".$content[$i]['tagname']."\" />
+    </form>
+        <div onclick=\"document.getElementById('".$content[$i]['tagname']."').submit();\" ><li><a>
+        <span class='com'>".$content[$i]['tagname']."</span></a>&times; ".mysql_result($count, 0)."
+        </li></div> 
+        </div>";
+                    
+            }
+            ?>
+             
+            
+
+        </div>
+    </div>
+</div>

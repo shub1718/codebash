@@ -1,0 +1,178 @@
+* {
+  transition: all 500ms ease-out;
+  -webkit-transition: all 500ms ease-out;
+}
+
+ .page {
+  width: 100%;
+  height: 100%;
+  
+  transition: all 1s cubic-bezier(.5, -0.005, 0.2, 1) !important;
+  -webkit-transition: all 1s cubic-bezier(.5, -0.005, 0.2, 1) !important;
+  
+}
+
+section {
+  width:100%;  
+}
+
+
+
+
+
+.contentnav>ul {
+ 
+ z-index: 1;
+}
+#t1:target .page#p1 {
+    transform: translateX(0);
+}
+#t2:target .page#p2 {
+    transform: translateX(-90%);
+}
+#t3:target .page#p3 {
+    transform: translateX(-190%);
+}
+#t4:target .page#p4 {
+    transform: translateX(-290%);
+}
+
+#t2:target .page#p1, 
+#t3:target .page#p1,
+#t4:target .page#p1 {
+  
+}
+
+#t2:target .page#p1 .glyphicon, 
+#t3:target .page#p1 .glyphicon,
+#t4:target .page#p1 .glyphicon {
+  -webkit-filter: blur(3px);
+  filter: blur(3px);
+}
+
+.glyphglyphicon {
+  color: #fff;
+  font-size: 32px;
+  display: block;
+}
+
+.contentnav>ul .glyphglyphicon:hover {
+  opacity: 0.6;
+}
+
+#p1 .glyphicon .title {
+  margin-bottom: 20px;
+}
+
+#t2:target ul .glyphicon,
+#t3:target ul .glyphicon,
+#t4:target ul .glyphicon {
+  transform: scale(.6); 
+  transition-delay: .25s;
+}
+
+#t2:target #dos {
+  transform: scale(1.2) !important;
+}
+
+#t3:target #tres {
+  transform: scale(1.2) !important;
+}
+
+#t4:target #cuatro {
+  transform: scale(1.2) !important;
+}
+
+.contentnav>ul {
+  
+  
+  margin: auto;
+  height: 280px;
+  width: 10%;
+  padding: 0;
+  text-align: center;
+ }
+
+.contentnav>ul li {
+  margin: 30px 0;
+}
+
+a {
+  text-decoration: none;
+  font-family: open sans, sans-serif;
+}
+
+.title, .hint {
+  font-family: open sans, sans-serif;
+  display: block;
+}
+
+.title {
+  font-size: 38px;
+}
+
+.hint {
+  font-size: 13px;
+}
+
+.hint a {
+  color: #EFFF06;
+  transition: all 250ms easet-out;
+}
+
+.hint a:hover {
+  color: #FFF;
+}
+
+.page .glyphicon {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 10%;
+  left: 0;
+  width: 270px;
+  height: 170px;
+  margin: auto;
+  text-align: center;
+  font-size: 80px;
+  transform: translateX(360%);
+  line-height: 1.3;
+}
+
+.page#p1 .glyphicon {
+  height: 220px;
+}
+
+.page#p1 .glyphicon {
+  transform: translateX(0) !important;
+}
+
+#t2:target .page#p2 .glyphicon {
+  transform: translateX(0) !important;
+  transition-delay: 1s;
+}
+
+#t3:target .page#p3 .glyphicon {
+  transform: translateX(0) !important;
+  transition-delay: 1s;
+}
+
+#t4:target .page#p4 .glyphicon {
+  transform: translateX(0) !important;
+  transition-delay: 1s;
+}
+
+.credit{
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	text-align: center;
+	font-size: 10px;
+}
+
+.credit a {
+	color: #fff
+}
+
+
+
